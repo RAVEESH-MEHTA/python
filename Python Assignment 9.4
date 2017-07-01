@@ -1,0 +1,18 @@
+name = raw_input("Enter file:")
+if len(name) < 1 : name = "mbox-short.txt"
+fh = open(name)
+count = 0
+countdict = dict()
+
+for line in fh:
+    if line.startswith('From:'):
+        l1 = line.split()        
+        countdict[l1[1]] = countdict.get(l1[1],0) + 1
+
+max = 0        
+for key in countdict:
+    if countdict[key]> max:
+        max_key = key
+        max = countdict[key]
+        
+print max_key, countdict[max_key]

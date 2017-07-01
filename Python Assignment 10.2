@@ -1,0 +1,17 @@
+name = raw_input("Enter file:")
+if len(name) < 1 : name = "mbox-short.txt"
+handle = open(name)
+z = list()
+count = dict()
+for line in handle:
+    if (line.startswith('From') and 'Jan' in line):
+        x= line.find('Jan')
+        y = line[x+7:x+9]
+        z.append(y)
+for i in z:
+    count[i]= count.get(i,0)+1
+
+keylist = count.keys()
+keylist.sort()
+for key in keylist:
+    print "%s %s" % (key, count[key])

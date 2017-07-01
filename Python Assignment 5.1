@@ -1,0 +1,21 @@
+largest = 0
+smallest = 100
+
+while True:
+    inpt = raw_input("Enter a number: ")
+    if inpt == "done":
+        break
+
+    try:
+        num = int(inpt)
+    except:
+        print "Invalid input"
+        continue
+
+    if num>largest:
+        largest = num
+    if num<smallest:
+        smallest=num
+
+print "Maximum is", largest
+print "Minimum is", smallest
